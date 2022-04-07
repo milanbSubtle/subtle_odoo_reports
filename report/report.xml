@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    action for customer order details report-->
+    <record id="customer_order_details_reports_wizard_action" model="ir.actions.report">
+        <field name="name">Customer Order Details</field>
+        <field name="model">customer.order.details.wizard</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">subtle_odoo_reports.report_customer_order_details_wizard</field>
+        <field name="report_file">subtle_odoo_reports.report_customer_order_details_wizard</field>
+        <field name="binding_model_id" ref="model_customer_order_details_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

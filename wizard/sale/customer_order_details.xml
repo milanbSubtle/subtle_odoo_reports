@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    manu item in sales reporting menu-->
+    <menuitem
+            id="customer_order_details_report_menu"
+            name="Customer Order Detail"
+            action="customer_order_details_report_wizard_action"
+            parent="sale.menu_sale_report"
+            sequence="10"
+            groups="base.group_user"/>
+
+    <!--    customer order details wizard form view-->
+    <record id="customer_order_details_form_view" model="ir.ui.view">
+        <field name="name">customer.order.details.wizard.form</field>
+        <field name="model">customer.order.details.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Customer Order details">
+                <group class="oe_title">
+                    <field name="customer"/>
+                </group>
+                <footer>
+                    <button name="print_customer_records" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+<!--        action for customer order details report wizard-->
+    <record id="customer_order_details_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Customer Order Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.order.details.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="customer_order_details_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>
