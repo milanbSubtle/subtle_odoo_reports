@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    customer sales list form view-->
+    <record id="customer_sales_list_form_view" model="ir.ui.view">
+        <field name="name">customer.sales.list.wizard.form</field>
+        <field name="model">customer.sales.list.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Customer Sales List">
+                <group class="oe_title">
+                    <field name="all_customer"/>
+                    <field name="customer"/>
+                </group>
+                <footer>
+                    <button name="print_customer_sales" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--        action for customer sales list report wizard-->
+    <record id="customer_sales_list_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Customer Sales List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.sales.list.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="customer_sales_list_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <!--    manu item for customer sales list in sales reporting menu-->
+    <menuitem
+            id="customer_sale_list_report_menu"
+            name="Customer Sales List"
+            action="customer_sales_list_report_wizard_action"
+            parent="sale.menu_sale_report"
+            sequence="11"
+            groups="base.group_user"/>
+
+</odoo>

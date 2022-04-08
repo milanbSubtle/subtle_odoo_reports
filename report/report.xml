@@ -10,4 +10,16 @@
         <field name="binding_model_id" ref="model_customer_order_details_wizard"/>
         <field name="binding_type">report</field>
     </record>
+
+    <!--    action for customer sales report-->
+    <record id="customer_sales_list_reports_wizard_action" model="ir.actions.report">
+        <field name="name">Customer Sales List</field>
+        <field name="model">customer.sales,list.wizard</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">subtle_odoo_reports.report_customer_sales_list_wizard</field>
+        <field name="report_file">subtle_odoo_reports.report_customer_sales_list_wizard</field>
+        <field name="binding_model_id" ref="model_customer_sales_list_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
 </odoo>
