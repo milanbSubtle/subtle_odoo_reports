@@ -12,7 +12,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/sale/customer_order_details.xml',
-        'report/customer_order_details_wizard_template.xml',
+        'report/customer_order_details_report_template.xml',
         'report/report.xml',
     ],
 

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!--    manu item in sales reporting menu-->
-    <menuitem
-            id="customer_order_details_report_menu"
-            name="Customer Order Detail"
-            action="customer_order_details_report_wizard_action"
-            parent="sale.menu_sale_report"
-            sequence="10"
-            groups="base.group_user"/>
-
     <!--    customer order details wizard form view-->
     <record id="customer_order_details_form_view" model="ir.ui.view">
         <field name="name">customer.order.details.wizard.form</field>
@@ -37,5 +28,13 @@
         <field name="target">new</field>
     </record>
 
+    <!--    manu item in sales reporting menu-->
+    <menuitem
+            id="customer_order_details_report_menu"
+            name="Customer Order Detail"
+            action="customer_order_details_report_wizard_action"
+            parent="sale.menu_sale_report"
+            sequence="10"
+            groups="base.group_user"/>
 
 </odoo>
