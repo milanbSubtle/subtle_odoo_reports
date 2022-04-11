@@ -11,6 +11,14 @@
                     <field name="all_customer"/>
                     <field name="customer"/>
                 </group>
+                <group>
+                    <group>
+                        <field name="from_date"/>
+                    </group>
+                    <group>
+                        <field name="to_date"/>
+                    </group>
+                </group>
                 <footer>
                     <button name="print_customer_sales" string="Generate" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>

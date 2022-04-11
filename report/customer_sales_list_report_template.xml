@@ -7,9 +7,34 @@
                     <h1>Customer Sales List</h1>
                 </center>
             </div>
-            <div class="customer_details">
+            <div class="from_to_date">
                 <table>
                     <tr>
+                        <td>
+                            From
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <t t-esc="form_data['from_date']"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            To
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <t t-esc="form_data['to_date']"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+            <br/>
+            <div class="order_details">
+                <table border="1" cellpadding="0" cellspacing="0"
+                       style="font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr style="background-color: #F1F1F1;">
                         <th>
                             Customer Name
                         </th>
@@ -20,10 +45,20 @@
                             Amount of Sales
                         </th>
                     </tr>
-                    <t>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <t t-foreach="order_details" t-as="order_info">
+                        <tr>
+                            <td>
+                                <t t-esc="order_info['name']"/>
+                            </td>
+                            <td>
+                                <t t-esc="order_info['customer_address']"/>
+
+                            </td>
+                            <td>
+                                <t t-esc="order_info['total_amount']"/>
+
+                            </td>
+                        </tr>
                     </t>
                 </table>
             </div>
