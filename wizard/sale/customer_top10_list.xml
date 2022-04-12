@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    customer top 10 list form view-->
+    <record id="customer_top10_list_form_view" model="ir.ui.view">
+        <field name="name">customer.top10.list.wizard.form</field>
+        <field name="model">customer.top10.list.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Customer - Top 10 List">
+                <group>
+                    <group>
+                        <field name="from_date"/>
+                    </group>
+                    <group>
+                        <field name="to_date"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_top10_list" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--        action for customer top 10 list report wizard-->
+    <record id="customer_top10_list_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">Customer - Top 10 List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.top10.list.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="customer_top10_list_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <!--    manu item for customer sales list in sales reporting menu-->
+    <menuitem
+            id="customer_top10_list_report_menu"
+            name="Customer - Top 10 List"
+            action="customer_top10_list_report_wizard_action"
+            parent="sale.menu_sale_report"
+            sequence="12"
+            groups="base.group_user"/>
+
+</odoo>
