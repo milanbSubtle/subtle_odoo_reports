@@ -9,7 +9,7 @@
             <form string="Customer Sales List">
                 <group class="oe_title">
                     <field name="all_customer"/>
-                    <field name="customer"/>
+                    <field name="customer" attrs="{'invisible': [('all_customer', '=', True)]}"/>
                 </group>
                 <group>
                     <group>

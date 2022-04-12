@@ -5,14 +5,13 @@ from datetime import datetime, timedelta, date
 class CustomerSalesList(models.TransientModel):
     _name = "customer.sales.list.wizard"
 
-    all_customer = fields.Boolean(string="For All Customers")
+    all_customer = fields.Boolean(string="For All Customers", default=False)
     customer = fields.Many2one(comodel_name="res.partner", string="Customer")
     from_date = fields.Datetime(string="From")
     to_date = fields.Datetime(string="To", default=datetime.now())
 
     def print_customer_sales(self):
         order_details = []
-        form_data = self.read()[0]
 
         customer_ids = self.env['res.partner'].search([])
 
@@ -52,7 +51,6 @@ class CustomerSalesList(models.TransientModel):
                                                                   ('state', 'in', ['done', 'sale']),
                                                                   ('date_order', '>=', self.from_date),
                                                                   ('date_order', '<=', self.to_date)])
-                # name = customer_records.name
 
             else:
                 customer_records = self.env['sale.order'].search([('partner_id', '=', self.customer.id),
@@ -65,7 +63,6 @@ class CustomerSalesList(models.TransientModel):
 
                     total_amount += customer_record.amount_total
 
-                    # TODO: add customer address
                     customer_address = customer_record.partner_id.street
                     customer_sales['name'] = customer_record.partner_id.name
                     customer_sales['customer_address'] = customer_address
